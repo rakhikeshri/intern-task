@@ -1,0 +1,13 @@
+.createDoorNav{
+    position: absolute;
+    top: -5px;
+    color: white;
+    left: 0;
+    background-color: black;
+    padding: 1rem;
+    width: 100%;
+}
+.backBtn{
+    cursor: pointer;
+    margin: 0;
+}

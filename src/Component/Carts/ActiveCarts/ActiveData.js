@@ -1,0 +1,68 @@
+const data = [
+    {
+        id:1,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'me',
+        expiry: 'today',
+    },
+    {
+        id:2,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'me',
+        expiry: 'today',
+    },
+    {
+        id:3,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'me',
+        expiry: 'today',
+    },
+    {
+        id:4,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'you',
+        expiry: 'today',
+    },
+    {
+        id:5,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'raj',
+        expiry: 'today',
+    },
+    {
+        id:6,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'shyam',
+        expiry: 'today',
+    },
+    {
+        id:7,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'me',
+        expiry: 'today',
+    },
+    {
+        id:8,
+        info: 'Carlo',
+        name: 'Monti',
+        shipPoint: 'blr',
+        createdBy: 'me',
+        expiry: 'today',
+    },
+]
+
+export default data

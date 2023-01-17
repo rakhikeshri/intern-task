@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import './configureNewDoor.css'
+import './confirmPage.css'
 import { useNavigate } from 'react-router-dom'
 import { Container, ProgressBar, Button, Card, Form, Row, Col } from 'react-bootstrap'
 
-const ConfigureNewDoor = () => {
+const ConfirmPage = () => {
   const Navigate = useNavigate()
   const now = 40;
   const [option, setOption] = useState()
@@ -15,10 +15,13 @@ const ConfigureNewDoor = () => {
 
       </div>
       <Container className='mt-5 mb-5'>
-        <ProgressBar className='my-3' now={now} label={`${now}%`} />
+        {/* <Button className='nextBtn'>Helllloooo</Button> */}
+
+        <ProgressBar now={now} label={`${now}%`} />;
+
 
         <Card>
-          <Card.Header>Featured</Card.Header>
+          <Card.Header>Hellloo</Card.Header>
 
           <Form.Group as={Row} className="my-3 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
@@ -38,7 +41,7 @@ const ConfigureNewDoor = () => {
               Assembly Type
             </Form.Label>
             <Col sm="10">
-              <div style={{ display: 'flex', gap: '1rem', }}>
+              <div style={{ display: 'flex', gap: '1rem' }}>
                 <Form.Select value={option} aria-label="Floating label select example" name='option3'>
                   <option value="One">One</option>
                   <option value="Two">Two</option>
@@ -286,4 +289,4 @@ const ConfigureNewDoor = () => {
   )
 }
 
-export default ConfigureNewDoor
+export default ConfirmPage

@@ -5,7 +5,12 @@ import { Container, ProgressBar, Button, Card, Form, Row, Col } from 'react-boot
 
 const ConfigureNewDoor = () => {
   const Navigate = useNavigate()
-  const now = 40;
+  let now = 0;
+
+  function increaseNow(now) {
+    now += 25;
+  }
+
   const [option, setOption] = useState()
   return (
     <>
@@ -17,8 +22,12 @@ const ConfigureNewDoor = () => {
       <Container className='mt-5 mb-5'>
         <ProgressBar className='my-3' now={now} label={`${now}%`} />
 
+
+        {/* 1st box */}
+
         <Card>
           <Card.Header>Featured</Card.Header>
+
 
           <Form.Group as={Row} className="my-3 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
@@ -77,6 +86,7 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
+
           <Form.Group as={Row} className="my-2 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Assembly Type
@@ -89,6 +99,7 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
+
           <Form.Group as={Row} className="my-2 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Assembly Type
@@ -101,9 +112,15 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
+
+          <Button variant='primary' style={{ maxWidth: '200px' }} onClick={() => increaseNow(now)}>Save</Button>
+
         </Card>
 
-        <Card  className='mt-2'>
+
+        {/* 2nd box */}
+
+        <Card className='mt-2'>
           <Card.Header>Window Options</Card.Header>
 
           <Form.Group as={Row} className="my-3 mx-5" controlId="formPlaintextPassword">
@@ -145,8 +162,9 @@ const ConfigureNewDoor = () => {
             </Col>
           </Form.Group>
         </Card>
-        
-        <Card  className='mt-2'>
+
+        {/* 3rd box */}
+        <Card className='mt-2'>
           <Card.Header>Window Options</Card.Header>
 
           <Form.Group as={Row} className="my-3 mx-5" controlId="formPlaintextPassword">
@@ -187,7 +205,7 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
-        
+
           <Form.Group as={Row} className="my-2 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Assembly Type
@@ -200,7 +218,7 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
-        
+
           <Form.Group as={Row} className="my-2 mx-5" controlId="formPlaintextPassword">
             <Form.Label column sm="2">
               Assembly Type
@@ -213,10 +231,13 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
-        
+
         </Card>
-        
-        <Card  className='mt-2'>
+
+
+        {/* 4th box */}
+
+        <Card className='mt-2'>
           <Card.Header>Window Options</Card.Header>
 
           <Form.Group as={Row} className="my-3 mx-5" controlId="formPlaintextPassword">
@@ -250,15 +271,15 @@ const ConfigureNewDoor = () => {
               Assembly Type
             </Form.Label>
             <Col sm="5" className='my-2'>
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)<br />
-              <input type='checkbox' className='my-2'/> Extra Strut(s)
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)<br />
+              <input type='checkbox' className='my-2' /> Extra Strut(s)
             </Col>
             <Col sm="5">
               <Form.Select value={option} aria-label="Floating label select example" name='option3'>
@@ -268,18 +289,19 @@ const ConfigureNewDoor = () => {
               </Form.Select>
             </Col>
           </Form.Group>
-        
-        
+
+
         </Card>
 
         <Container className='m-3 d-flex justify-content-end'>
-          <Button variant='light' bg-light className='mx-3' style={{color:'brown', border:'2px solid brown'}}> 
+          <Button variant='light' bg-light className='mx-3' style={{ color: 'brown', border: '2px solid brown' }}>
             Preview
           </Button>
-          <Button style={{color:'white',border:'none', backgroundColor:'brown'}} onClick={()=>Navigate('/confirmPage')}> 
+          <Button style={{ color: 'white', border: 'none', backgroundColor: 'brown' }} onClick={() => Navigate('/confirmPage')}>
             Preview
           </Button>
         </Container>
+
       </Container>
 
     </>

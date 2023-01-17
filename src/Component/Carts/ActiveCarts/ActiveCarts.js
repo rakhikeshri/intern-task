@@ -5,12 +5,11 @@ import CreateOrder from './CreateOrder'
 import { AppContext } from '../../../App'
 import DummyData from './DummyData'
 
-
 const ActiveCarts = () => {
 
   const { searchTerm } = useContext(AppContext)
   const [activeData, setActiveData] = useState([])
-  const [dummyData, setDummyData] = useState(DummyData)
+  const dummyData = DummyData
 
   useEffect(() => {
     const activeData = window.localStorage.getItem('activeOptions')

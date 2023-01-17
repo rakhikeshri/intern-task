@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import './configureNewDoor.css'
 import { useNavigate } from 'react-router-dom'
 import { Container, ProgressBar, Button, Card, Form, Row, Col } from 'react-bootstrap'

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import './confirmPage.css'
 import { useNavigate } from 'react-router-dom'
-import { Container, Button, Card, Form, Row, Col, InputGroup } from 'react-bootstrap'
+import { Container, Button, Form, Row, Col } from 'react-bootstrap'
 import { AppContext } from '../../../App'
 import { FiArrowLeft } from "react-icons/fi";
 import { MdFavorite} from 'react-icons/md'
@@ -26,15 +26,11 @@ const ConfirmPage = () => {
   }
  
   const Navigate = useNavigate()
-  const now = 40;
   return (
     <>
       <div className='createDoorNav pt-4'>
-
         <h5 onClick={() => Navigate(-1)} className='d-flex  align-items-center'><FiArrowLeft style={{cursor:'pointer'}} className='mx-4'/> {createdBy }   </h5>
-
       </div>
-
 
       <Container >
 

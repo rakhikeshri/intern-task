@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import { Col, Row, Container, Table } from 'react-bootstrap'
+import React, { useState, useEffect, useContext } from 'react'
+import { Container, Table } from 'react-bootstrap'
 import './ActiveCarts.css'
-import ActiveData from './ActiveData'
 import CreateOrder from './CreateOrder'
+import { AppContext } from '../../../App'
+import DummyData from './DummyData'
+
 
 const ActiveCarts = () => {
-  // const [activeData, setActiveData] = useState([])
-  const [info, setInfo] = useState('')
-  const [name, setName] = useState('')
-  const [shipPoint, setShipPoint] = useState('')
-  const [createdBy, setCreatedBy] = useState('')
-  const [windCode, setWindCode] = useState('')
 
-    return (
+  const { searchTerm } = useContext(AppContext)
+  const [activeData, setActiveData] = useState([])
+  const [dummyData, setDummyData] = useState(DummyData)
+
+  useEffect(() => {
+    const activeData = window.localStorage.getItem('activeOptions')
+    setActiveData(JSON.parse(activeData))
+  }, [])
+
+  return (
     <>
       <CreateOrder />
       <div>
@@ -23,20 +28,34 @@ const ActiveCarts = () => {
               <th>CART NAME</th>
               <th>SHIPPING POINT</th>
               <th>CREATED BY</th>
-              <th>EXPIRY</th>
+              <th>WINDCODE</th>
             </tr>
           </thead>
           <tbody>
             {
-              // activeData.filter(data => data.createdBy.toLowerCase().includes(searchTerm))
-                activeData.map((data) => {
+              dummyData.filter(data => data.info.toLowerCase().includes(searchTerm.toLowerCase()))
+                .map((data, index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td>{data.info}</td>
                       <td>{data.name}</td>
                       <td>{data.shipPoint}</td>
                       <td>{data.createdBy}</td>
-                      <td>{data.expiry}</td>
+                      <td>{data.windcode}</td>
+                    </tr>
+                  )
+                })
+            }
+            {
+              activeData.filter(data => data.info.toLowerCase().includes(searchTerm.toLowerCase()))
+                .map((data, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{data.info}</td>
+                      <td>{data.name}</td>
+                      <td>{data.shipPoint}</td>
+                      <td>{data.createdBy}</td>
+                      <td>{data.windcode}</td>
                     </tr>
                   )
                 })
@@ -48,29 +67,32 @@ const ActiveCarts = () => {
       {/* tablets */}
 
       <Container fluid className='tablets'>
-        <Container fluid className='tablets-list shadow m-2 p-2 py-3'>
-          <small>Group Name £Classic_John</small>
-          <p className='my-3'>Classic Collection bvmbm</p>
-          <small>Group Name £Classic_John</small>
-        </Container>
-
-        <Container fluid className='tablets-list shadow m-2 p-2 py-3'>
-          <small>Group Name £Classic_John</small>
-          <p className='my-3'>Classic Collection bvmbm</p>
-          <small>Group Name £Classic_John</small>
-        </Container>
-
-        <Container fluid className='tablets-list shadow m-2 p-2 py-3'>
-          <small>Group Name £Classic_John</small>
-          <p className='my-3'>Classic Collection bvmbm</p>
-          <small>Group Name £Classic_John</small>
-        </Container>
-
-        <Container fluid className='tablets-list shadow m-2 p-2 py-3'>
-          <small>Group Name £Classic_John</small>
-          <p className='my-3'>Classic Collection bvmbm</p>
-          <small>Group Name £Classic_John</small>
-        </Container>
+        {
+          dummyData.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((data, index) => {
+              return (
+                <Container fluid className='tablets-list shadow m-2 p-2 py-3' key={index}>
+                  <h4 style={{ color: "grey" }}>CreatedBy : {data.createdBy}</h4>
+                  <h3 className='my-3'>Name : {data.name}</h3>
+                  <p>Product Info : {data.info}</p>
+                </Container>
+              )
+            }
+          )
+        }
+        {
+          activeData.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((data, index) => {
+              return (
+                <Container fluid className='tablets-list shadow m-2 p-2 py-3' key={index}>
+                  <h4 style={{ color: "grey" }}>CreatedBy : {data.createdBy}</h4>
+                  <h3 className='my-3'>Name : {data.name}</h3>
+                  <p>Product Info : {data.info}</p>
+                </Container>
+              )
+            }
+          )
+        }
 
       </Container>
     </>

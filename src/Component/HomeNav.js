@@ -7,7 +7,6 @@ const HomeNav = () => {
     return (
         <Container fluid className='bg-dark d-flex' style={{alignItems:'center', justifyContent:'center'}}>
             <div style={{display:'flex'}}>
-                {/* <NavLink to="/carts" className='links'> */}
                 <NavLink to="/" className='links'>
                     <h2>CARTS</h2>
                 </NavLink>

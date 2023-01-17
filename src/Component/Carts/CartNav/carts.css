@@ -7,3 +7,23 @@
 .cartLink a:hover{
     border-bottom: 2px solid blue;
 }
+
+.search{
+    border-radius: 5px;
+    padding: 2px 4px;
+}
+.active{
+    border-bottom: 2px solid blue;
+    
+}
+
+@media screen and (max-width: 414px) {
+    .cartLink a{
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+    
+    .search{
+        width: 30%;
+    }
+}

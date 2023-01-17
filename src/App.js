@@ -1,8 +1,5 @@
-
-import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeNav from './Component/HomeNav';
-// import Home from './Component/Home';
 import Carts from './Component/Carts/CartNav/Carts';
 import ActiveCarts from './Component/Carts/ActiveCarts/ActiveCarts';
 import ArchivedCarts from './Component/Carts/ArchivedCarts';
@@ -11,12 +8,25 @@ import ConfigureNewDoor from './Component/Carts/ConfigureNewDoor/ConfigureNewDoo
 import CreateDoorPage from './Component/Carts/CreateDoorPage/CreateDoorPage';
 import ConfigurePage from './Component/Carts/ConfigurePage/ConfigurePage';
 import ConfirmPage from './Component/Carts/ConfirmPage/ConfirmPage';
+import { createContext, useState } from "react";
+
+export const AppContext = createContext()
 
 function App() {
+
+  const [info, setInfo] = useState('')
+  const [name, setName] = useState('')
+  const [shipPoint, setShipPoint] = useState('')
+  const [createdBy, setCreatedBy] = useState('')
+  const [windcode, setWindcode] = useState('')
+  
+  const [searchTerm, setSearchTerm] = useState('')
+  
+
   return (
     <div>
       <Router>
-        {/* <Home /> */}
+      <AppContext.Provider value={{ info, setInfo, name, setName, shipPoint, setShipPoint, createdBy, setCreatedBy, windcode, setWindcode, searchTerm, setSearchTerm }}>
         <HomeNav />
         <Routes>
           <Route path='/' element={<Carts />}>
@@ -25,10 +35,11 @@ function App() {
           </Route>
           <Route exact path="/createDoorPage" element={<CreateDoorPage />} />
           <Route exact path="/configurePage" element={<ConfigurePage />} />
-          <Route exact path="/configureNewDoor" element={<ConfigureNewDoor />} />
+            <Route exact path="/configureNewDoor" element={<ConfigureNewDoor />} />
           <Route exact path="/confirmPage" element={<ConfirmPage />} />
           <Route path='/fav' element={<Favorites />} />
         </Routes>
+          </AppContext.Provider>
       </Router>
     </div>
   );

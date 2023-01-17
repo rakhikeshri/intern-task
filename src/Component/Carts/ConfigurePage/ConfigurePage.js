@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './configurePage.css'
 import { useNavigate } from 'react-router-dom'
 import { Container, Button, Form } from 'react-bootstrap'
+import { FiArrowLeft } from "react-icons/fi";
 
 const getLocalStorage = () => {
   let savedOption = JSON.parse(localStorage.getItem("option"));
@@ -14,22 +15,11 @@ const getLocalStorage = () => {
 
 const ConfigurePage = () => {
   const Navigate = useNavigate()
-  // const [option1, setOption1] = useState('')
-
-  // useEffect(() => {
-  //   const data1 = localStorage.getItem(option1)
-  //   setOption1(JSON.parse(data1))
-  // }, [])
-
-  // useEffect(() => {
-  //   localStorage.setItem('option1', JSON.stringify(option1))
-  // },[option1])
 
   const [option, setOption] = useState(
     getLocalStorage()
   )
 
-  console.log(option)
   const setData = (e) => {
     const { name, value } = e.target;
     setOption((preVal) => {
@@ -43,15 +33,13 @@ const ConfigurePage = () => {
   useEffect(() => {
     localStorage.setItem('option', JSON.stringify(option))
   }, [option])
+
   return (
     <>
-      <div className='createDoorNav'>
-        <h3 onClick={() => Navigate(-1)} className='backBtn'>back</h3>
+      <div className='createDoorNav pt-4'>
+        <h5 onClick={() => Navigate(-1)} className='d-flex  align-items-center'><FiArrowLeft className='mx-4' style={{ cursor: 'pointer' }} /> Configure a new door  <span style={{ fontSize: ".8rem" }} className="m-2"> 2 of 3</span> </h5>
       </div>
       <Container className='mt-5 mb-5'>
-
-        <Button className='nextBtn' onClick={() => Navigate('/configureNewDoor')}>CONFIGURE</Button>
-
         <Container className='mb-3'>
           <span>Select Category</span>
 
@@ -78,6 +66,14 @@ const ConfigurePage = () => {
             <option value="Two">Two</option>
             <option value="Three">Three</option>
           </Form.Select>
+        </Container>
+
+        <Container className='m-3 d-flex justify-content-end'>
+
+          <Button style={{ color: 'white', border: 'none', backgroundColor: 'brown' }} onClick={() => Navigate('/configureNewDoor')}>
+            CONFIGURE
+          </Button>
+
         </Container>
 
       </Container>

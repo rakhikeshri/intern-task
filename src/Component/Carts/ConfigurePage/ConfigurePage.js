@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './configurePage.css'
 import { useNavigate } from 'react-router-dom'
-import { Container, FloatingLabel, Button, Form } from 'react-bootstrap'
+import { Container, Button, Form } from 'react-bootstrap'
 
 const getLocalStorage = () => {
   let savedOption = JSON.parse(localStorage.getItem("option"));
